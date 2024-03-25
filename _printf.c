@@ -20,15 +20,14 @@
 
 int _printf(const char *format, ...)
 {
-	if (format == NULL)
-	return (-1);
-
 	const char *ptr = format;
 	int count = 0;
 	char c;
 	char *str;
-
 	va_list args;
+
+	if (format == NULL)
+        return (-1);
 
 	va_start(args, format);
 
@@ -70,27 +69,6 @@ int _printf(const char *format, ...)
 				{
 					_putchar('%');
 					count++;
-				}
-				case 'i':
-				case 'd':
-				{
-					num = va_arg(args, int);
-					if (num < 0)
-					{
-						_putchar('-');
-						count++;
-					}
-					while (num / div >= 10)
-					{
-						div *= 10;
-					}
-					while (div != 0)
-					{
-						_putchar((num / div) + '0');
-						count++;
-						num %= div;
-						div /= 10;
-					}
 					break;
 				}
 
