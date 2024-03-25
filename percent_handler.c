@@ -4,17 +4,18 @@
 
 /**
  * percent_handler - Handles the '%%' conversion specifier.
- * @args: A va_list containing the variable arguments.
+ * @args: A va_list containing the variable arguments (unused).
  *
- * This function is responsible for handling the '%%' conversion specifier,
- * which prints a '%' character to the standard output.
+ * Description:
+ *     This function prints a '%' character to the standard output. It is
+ *     called when the '%%' conversion specifier is encountered in the format
+ *     string.
  *
  * Args:
- *     args: A va_list containing the variable arguments.
+ *     args: A va_list containing the variable arguments (unused).
  *
  * Return:
- *     The function returns an integer indicating the success of the operation.
- *     Always returns 0.
+ *     The function always returns 1 to indicate success.
  */
 
 int percent_handler(va_list args)
