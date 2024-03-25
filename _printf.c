@@ -24,6 +24,8 @@ int _printf(const char *format, ...)
 	int count = 0;
 	char c;
 	char *str;
+	int num; 
+	int div = 1;
 	va_list args;
 
 	if (format == NULL)
@@ -69,6 +71,29 @@ int _printf(const char *format, ...)
 				{
 					_putchar('%');
 					count++;
+					break;
+				}
+
+				case 'i':
+				case 'd':
+				{
+					num = va_arg(args, int);
+					if (num < 0)
+					{
+						_putchar('-');
+						count++;
+					}
+					while (num / div >= 10)
+					{
+						div *= 10;
+					}
+					while (div != 0)
+					{
+						_putchar((num / div) + '0');
+						count++;
+						num %= div;
+						div /= 10;
+					}
 					break;
 				}
 
