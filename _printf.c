@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <strarg.h>
+#include <stdarg.h>
 #include "main.h"
 
 data handler[] =
@@ -10,7 +10,17 @@ data handler[] =
         {NULL, NULL}
 };
 
-int _printf(cont char *format, ...)
+/**
+ * _printf - Produces output according to a format.
+ * @format: A pointer to the format string.
+ * @...: Variable number of arguments.
+ * Return: 
+ * The function returns the number of characters printed (excluding the
+ * null byte used to end output to strings). Returns -1 if the format
+ * string is NULL.
+ */
+
+int _printf(const char *format, ...)
 {
 	int i = 0;
 	int count = 0;
@@ -37,11 +47,11 @@ int _printf(cont char *format, ...)
 				return (-1);
 			}
 
-			while (handler[i] != NULl)
+			while (handler[i].valid != NULL)
 			{
 				if (*format == *(handler[i].valid))
 				{
-					count += handler[i].handler(args);
+					count += handler[i].func(args);
 					break;
 				}
 				i++;
