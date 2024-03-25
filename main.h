@@ -10,7 +10,7 @@
 typedef struct data
 {
         char *valid;
-        int (*handler)(va_list args);
+        int (*func)(va_list);
 } data;
 
 int _printf(const char *format, ...);
