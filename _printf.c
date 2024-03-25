@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 	char c;
 	char *str;
-	int num; 
+	int num = 0; 
 	int div = 1;
 	va_list args;
 
@@ -83,6 +83,9 @@ int _printf(const char *format, ...)
 						_putchar('-');
 						count++;
 					}
+					if (div == 0)
+						return (-1);
+
 					while (num / div >= 10)
 					{
 						div *= 10;
