@@ -22,7 +22,8 @@
 int c_handler(va_list args)
 {
 	char c;
-	c =(char)va_arg(args, int);
+
+	c = (char)va_arg(args, int);
 	_putchar(c);
 
 	return (1);
