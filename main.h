@@ -20,5 +20,7 @@ int _putchar(char c);
 int c_handler(va_list args);
 int s_handler(va_list args);
 int percent_handler(va_list args);
+int int_handler(va_list args);
+int process_format(const char *format, va_list args, data *handler);
 #endif
 

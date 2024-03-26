@@ -1,32 +1,20 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
-
 /**
- * _printf - Produces output according to a format.
- * @format: A pointer to the format string.
- * @...: Variable number of arguments.
- * Return:
- * The function returns the number of characters printed (excluding the
- * null byte used to end output to strings). Returns -1 if the format
- * string is NULL.
+ * process_format - a function that processes the format and
+ * calls the appropriate handlers
+ * @format: the format
+ * @args: handlers
+ * @handler: a pointer to the data array
+ * Return: number of characters
  */
 
-int _printf(const char *format, ...)
+int process_format(const char *format, va_list args, data *handler)
 {
-	int i;
 	int count = 0;
-	data handler[] = {
-		{"c", c_handler},
-		{"s", s_handler},
-		{"%", percent_handler},
-		{NULL, NULL}
-	};
-	va_list args;
+	int i;
 
-	if (format == NULL)
-		return (-1);
-	va_start(args, format);
 	while (*format != '\0')
 	{
 		i = 0;
@@ -58,6 +46,33 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
+	return (count);
+}
+/**
+ * _printf - Produces output according to a format.
+ * @format: A pointer to the format string.
+ * @...: Variable number of arguments.
+ * Return:
+ * The function returns the number of characters printed (excluding the
+ * null byte used to end output to strings). Returns -1 if the format
+ * string is NULL.
+ */
+
+int _printf(const char *format, ...)
+{
+	int count = 0;
+	data handler[] = {
+		{"c", c_handler},
+		{"s", s_handler},
+		{"%", percent_handler},
+		{NULL, NULL}
+	};
+	va_list args;
+
+	if (format == NULL)
+		return (-1);
+	va_start(args, format);
+	count = process_format(format, args, handler);
 	va_end(args);
 	return (count);
 }
