@@ -30,7 +30,7 @@ int s_handler(va_list args)
 	{
 		_putchar('(');
 		_putchar('n');
-		_putchar('i');
+		_putchar('u');
 		_putchar('l');
 		_putchar('l');
 		_putchar(')');
