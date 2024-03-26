@@ -4,10 +4,10 @@ NAME
                 _printf - formatted output conversion, this function works like printf
 
 SYNOPSIS
-		            #include <stdarg.h>
-		            #include “main.h”
+		#include <stdarg.h>
+		#include “main.h”
 
-		            Int _printf(const char *format, …);
+		int _printf(const char *format, …);
 
 DESCRIPTION 
                 The _printf function produces output to the stdio, 
@@ -34,19 +34,20 @@ DESCRIPTION
 
 
           The conversion specifiers
+
                 A character that specifies the type of conversion to be applied. 
                 The conversion specifiers and their meanings are:
 		
-                %c	prints a char or character
+                %c	     prints a char or character
 
-                %s	prints a char* or a pointer to an array of character type 
-                    (pointer to a string).The array must contain a terminating 
-                    null byte ('\0'), but the null byte is not included in the _printf output.
+                %s	     prints a char* or a pointer to an array of character type 
+                             (pointer to a string).The array must contain a terminating 
+                             null byte ('\0'), but the null byte is not included in the _printf output.
 
-                %%	prints '%'. No argument is converted. 
-                    The complete conversion specification is '%%'.
+                %%	     prints '%'. No argument is converted. 
+                             The complete conversion specification is '%%'.
 
-                %d and %i	 prints int or integer. It is converted to signed decimal notation. 
+                %d and %d    prints int or integer. It is converted to signed decimal notation. 
 
 
 RETURN VALUE
@@ -69,9 +70,9 @@ EXAMPLES:
                 _printf(“Length:[%d\n”, 39);
 
 SEE ALSO:
-		            man printf (3)
+		man printf (3)
 
 AUTHOR 
-		            Nicole Ann Gorospe and Wen-I Liu 
+		Nicole Ann Gorospe and Wen-I Liu 
 
 2024-03-27 
