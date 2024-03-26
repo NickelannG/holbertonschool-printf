@@ -28,13 +28,7 @@ int s_handler(va_list args)
 
 	if (str == NULL)
 	{
-		_putchar('(');
-		_putchar('n');
-		_putchar('u');
-		_putchar('l');
-		_putchar('l');
-		_putchar(')');
-		return (-6);
+		str = "(null)";
 	}
 
 	while (*str != '\0')
