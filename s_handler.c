@@ -28,6 +28,12 @@ int s_handler(va_list args)
 
 	if (str == NULL)
 	{
+		_putchar('(');
+		_putchar('n');
+		_putchar('i');
+		_putchar('l');
+		_putchar('l');
+		_putchar(')');
 		return (-1);
 	}
 
