@@ -2,15 +2,17 @@
 #define MAIN_H
 
 /**
- * struct specifier - struct to hold information about conversion specifiers
+ * struct data - struct to hold information about conversion specifiers
  * @valid: pointer to a string of valid conversion specifiers
- * @handler: function pointer to the handling function for the conversion specifier
+ * @func: function pointer to the handling function for the conversion
+ * specifier
+ *
  */
 
 typedef struct data
 {
-        char *valid;
-        int (*func)(va_list);
+	char *valid;
+	int (*func)(va_list);
 } data;
 
 int _printf(const char *format, ...);

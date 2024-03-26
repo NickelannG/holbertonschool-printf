@@ -21,12 +21,11 @@
 
 int c_handler(va_list args)
 {
-        char c;
+	char c;
 
-        c = (char)va_arg(args, int);
-        _putchar(c);
+	c = (char)va_arg(args, int);
+	_putchar(c);
 
-        return (1);
+	return (1);
 
 }
-

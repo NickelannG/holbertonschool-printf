@@ -20,22 +20,22 @@
  */
 
 int s_handler(va_list args)
-{     
-        int count = 0;
-        char *str;
-        str = va_arg(args, char*);
+{
+	int count = 0;
+	char *str;
 
-        if (str == NULL)
-        {
-                return (-1);
-        }
+	str = va_arg(args, char*);
 
-        while (*str != '\0')
-        {
-                _putchar(*str);
-                count++;
-                str++;
-        }
-        return (count);
+	if (str == NULL)
+	{
+		return (-1);
+	}
+
+	while (*str != '\0')
+	{
+		_putchar(*str);
+		count++;
+		str++;
+	}
+	return (count);
 }
-
