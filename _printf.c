@@ -14,7 +14,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int i;
 	int count = 0;
 	data handler[] = {
 		{"c", c_handler},
@@ -29,6 +29,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (*format != '\0')
 	{
+		i = 0;
 		if (*format != '%')
 		{
 			_putchar(*format);
