@@ -52,7 +52,8 @@ int _printf(const char *format, ...)
 			if (handler[i].valid == NULL)
 			{
 				_putchar('%');
-				count++;
+				_putchar(*format);
+				count += 2;
 			}
 		}
 		format++;
