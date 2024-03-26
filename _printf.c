@@ -3,117 +3,60 @@
 #include "main.h"
 
 /**
- * _printf - produces output according to a format
- * @format: a character string containing format specifiers
- * @...: additional arguments corresponding to the format specifiers
- *
- * Description:
- * This function takes a format string and
- * a variable number of arguments and produces output
- * according to the format. The format string may contain
- * conversion specifiers such as %c, %s, and %%.
- *
+ * _printf - Produces output according to a format.
+ * @format: A pointer to the format string.
+ * @...: Variable number of arguments.
  * Return:
- * The number of characters printed
- * (excluding the null byte used to end output to strings) is returned.
+ * The function returns the number of characters printed (excluding the
+ * null byte used to end output to strings). Returns -1 if the format
+ * string is NULL.
  */
 
 int _printf(const char *format, ...)
 {
-	const char *ptr = format;
+	int i;
 	int count = 0;
-	char c;
-	char *str;
-	int num = 0; 
-	int div = 1;
+	data handler[] = {
+		{"c", c_handler},
+		{"s", s_handler},
+		{"%", percent_handler},
+		{NULL, NULL}
+	};
 	va_list args;
 
 	if (format == NULL)
-        return (-1);
-
+		return (-1);
 	va_start(args, format);
-
-	while (*ptr != '\0')
+	while (*format != '\0')
 	{
-		if (*ptr == '%')
+		i = 0;
+		if (*format != '%')
 		{
-			ptr++;
-			if (*ptr == '\0')
-			{
-				break;
-			}
-			switch (*ptr)
-			{
-				case 'c':
-				{
-					c = (char)va_arg(args, int);
-					_putchar(c);
-					count++;
-					break;
-				}
-				case 's':
-				{
-					str = va_arg(args, char*);
-
-					if (str == NULL)
-						return (-1);
-
-					while (*str != '\0')
-					{
-						_putchar(*str);
-						count++;
-						str++;
-					}
-					break;
-				}
-
-				case '%':
-				{
-					_putchar('%');
-					count++;
-					break;
-				}
-
-				case 'i':
-				case 'd':
-				{
-					num = va_arg(args, int);
-					if (num < 0)
-					{
-						_putchar('-');
-						count++;
-					}
-					if (div == 0)
-						return (-1);
-
-					while (num / div >= 10)
-					{
-						div *= 10;
-					}
-					while (div != 0)
-					{
-						_putchar((num / div) + '0');
-						count++;
-						num %= div;
-						div /= 10;
-					}
-					break;
-				}
-
-				default:
-				{
-					_putchar(*ptr);
-					count++;
-					break;
-				}
-			}
+			_putchar(*format);
+			count++;
 		}
 		else
 		{
-			_putchar(*ptr);
-			count++;
+			format++;
+			if (*format == '\0')
+				return (-1);
+			while (handler[i].valid != NULL)
+			{
+				if (*format == *(handler[i].valid))
+				{
+					count += handler[i].func(args);
+					break;
+				}
+				i++;
+			}
+			if (handler[i].valid == NULL)
+			{
+				_putchar('%');
+				_putchar(*format);
+				count += 2;
+			}
 		}
-		ptr++;
+		format++;
 	}
 	va_end(args);
 	return (count);
