@@ -1,0 +1,78 @@
+_printf(3) Manual
+
+NAME 
+                _printf - formatted output conversion, this function works like printf
+
+SYNOPSIS
+		#include <stdarg.h>
+		#include “main.h”
+
+		int _printf(const char *format, …);
+
+DESCRIPTION 
+                The _printf function produces output to the stdio, 
+                standard output stream, according to the format specifiers 
+                inside the format string. 
+
+        Format of the format string
+
+                The format string is a character string, beginning and 
+                ending in its initial shift state, if any. 
+                The format string is composed of zero or more directives: 
+                ordinary characters (not %), which are copied unchanged to 
+                the output stream; and conversion specifications, \
+                each of which results in fetching zero or more subsequent arguments. 
+                Each conversion specification is introduced by the character %, 
+                and ends with a conversion specifier.
+
+                This _printf function takes no flags and cannot handle field width, 
+                precision or length modifiers. The arguments must correspond properly 
+                (after type promotion) with the conversion specifier. 
+                By default, the arguments are used in the order given, 
+                where each '*' and each conversion specifier asks for the next argument 
+                (and it is an error if insufficiently many arguments are given).
+
+
+          The conversion specifiers
+
+                A character that specifies the type of conversion to be applied. 
+                The conversion specifiers and their meanings are:
+		
+                %c	     prints a char or character
+
+                %s	     prints a char* or a pointer to an array of character type 
+                             (pointer to a string).The array must contain a terminating 
+                             null byte ('\0'), but the null byte is not included in the _printf output.
+
+                %%	     prints '%'. No argument is converted. 
+                             The complete conversion specification is '%%'.
+
+                %d and %d    prints int or integer. It is converted to signed decimal notation. 
+
+
+RETURN VALUE
+                Upon successful return, this function returns the number of characters printed 
+                (excluding the null byte used to end output to strings). 
+                If an output error is encountered, (-1) is returned.
+
+
+BUGS
+                There are no bugs in the context of this exercise. 
+                This function passess all checkers as intended.
+
+
+EXAMPLES:
+                To print “"Let's try to printf a simple sentence.”
+                _printf(“%s”\n”, "Let's try to printf a simple sentence.”);
+
+
+                To print “Length:[39]”
+                _printf(“Length:[%d\n”, 39);
+
+SEE ALSO:
+		man printf (3)
+
+AUTHOR 
+		Nicole Ann Gorospe and Wen-I Liu 
+
+2024-03-27 
