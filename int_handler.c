@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
-
+#include <limits.h>
 /**
  * int_handler - Handles the '%d' conversion specifier.
  * @args: A va_list containing the variable arguments.
