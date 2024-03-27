@@ -27,10 +27,10 @@ int int_handler(va_list args)
 	
 	if (num == INT_MIN)
 	{
-		count ++;
-		num /= 10;
+		count += _putchar('-');
+		k = (unsigned int)INT_MAX + 1;
 	}	
-	if (num < 0)
+	else if (num < 0)
         {
 		k = (num * -1);
 		count += _putchar('-');
