@@ -25,7 +25,13 @@ int int_handler(va_list args)
 
         num = va_arg(args, int);
 	
-	if (num < 0)
+	if (num == INT_MIN)
+	{
+		_putchar('-');
+		num = -(num + 1) -1;
+		count++;
+	}	
+	else if (num < 0)
         {
                 k = (num * -1);
                 count += _putchar('-');
