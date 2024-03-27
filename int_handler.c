@@ -1,7 +1,34 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include <stdarg.h>
 #include "main.h"
 #include <limits.h>
+
+/**
+ * int_neg - a recursive function that prints negative integers
+ * char by char
+ *
+ * @n: num to prinf
+ *
+ * Return:
+ * count of digits printed
+ */
+
+int int_neg(int num)
+{
+	int count = 1;
+	int r = -(num % 10);
+	char c = r + '0';
+
+	if (num < -9)
+	{
+		count = count + int_neg((num + r) / 10);
+	}
+	write(1, &c, 1);
+
+	return (count);
+}
 /**
  * int_handler - Handles the '%d' conversion specifier.
  * @args: A va_list containing the variable arguments.
@@ -21,25 +48,17 @@
 int int_handler(va_list args)
 {
         int num, count = 0;
-        int div, k;
+        int div;
 
         num = va_arg(args, int);
 	
-	if (num == INT_MIN)
-	{
-		count += _putchar('-');
-		k = -(num + 1);
-	}	
 	if (num < 0)
-        {
-		k = (num * -1);
-		count += _putchar('-');
+	{
+		_putchar('-');
+		count = int_neg(num) + 1;
+	}
 
-        }
-        else 
-                k = num;
-
-        if (num == 0)
+	else if (num == 0)
         {
                 _putchar('0');
                 count++;
@@ -47,15 +66,15 @@ int int_handler(va_list args)
         else
         {
                 div = 1;
-                while (k / div >= 10)
+                while (num / div >= 10)
                 {
                         div *= 10;
                 }
                 while (div != 0)
                 {
-                        _putchar((k / div) + '0');
+                        _putchar((num / div) + '0');
                         count++;
-                        k %= div;
+                        num %= div;
                         div /= 10;
                 }
         }
