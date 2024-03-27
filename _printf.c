@@ -65,8 +65,8 @@ int _printf(const char *format, ...)
 		{"c", c_handler},
 		{"s", s_handler},
 		{"%", percent_handler},
-    {"i", int_handler},
-	  {"d", int_handler},
+                {"i", int_handler},
+	        {"d", int_handler},
 		{NULL, NULL}
 	};
 	va_list args;
