@@ -28,7 +28,7 @@ int int_handler(va_list args)
 	if (num == INT_MIN)
 	{
 		count += _putchar('-');
-		k = (unsigned int)INT_MAX + 1;
+		k = -(num + 1);
 	}	
 	if (num < 0)
         {
