@@ -24,11 +24,18 @@ int int_handler(va_list args)
         int div, k;
 
         num = va_arg(args, int);
-		
-	if (num < 0 || num == INT_MIN)
+	
+	if (num == INT_MIN)
+	{
+		k = (num * -1);
+		count += _putchar('-');
+		k--;
+	}	
+	if (num < 0)
         {
-                k = (num * -1);
-                count += _putchar('-');
+		k = (num * -1);
+		count += _putchar('-');
+
         }
         else 
                 k = num;
