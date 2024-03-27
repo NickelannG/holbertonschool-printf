@@ -24,8 +24,11 @@ int int_handler(va_list args)
         int div;
 
         num = va_arg(args, int);
-
-        if (num < 0)
+	
+	if (num == INT_MIN)
+	{
+	}
+	else if (num < 0)
         {
                 _putchar('-');
                 count++;
