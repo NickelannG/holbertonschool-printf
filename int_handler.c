@@ -28,8 +28,9 @@ int int_handler(va_list args)
 	if (num == INT_MIN)
 	{
 		k = (num * -1);
-		count += _putchar('-');
+		count ++;
 		k--;
+		_putchar(k);
 	}	
 	if (num < 0)
         {
