@@ -30,7 +30,7 @@ int int_handler(va_list args)
 		count += _putchar('-');
 		k = (unsigned int)INT_MAX + 1;
 	}	
-	else if (num < 0)
+	if (num < 0)
         {
 		k = (num * -1);
 		count += _putchar('-');
