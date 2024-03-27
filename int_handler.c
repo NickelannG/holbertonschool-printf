@@ -9,7 +9,7 @@
  * int_neg - a recursive function that prints negative integers
  * char by char
  *
- * @n: num to prinf
+ * @num: num to print
  *
  * Return:
  * count of digits printed
@@ -47,11 +47,11 @@ int int_neg(int num)
 
 int int_handler(va_list args)
 {
-        int num, count = 0;
-        int div;
+	int num, count = 0;
+	int div;
 
-        num = va_arg(args, int);
-	
+	num = va_arg(args, int);
+
 	if (num < 0)
 	{
 		_putchar('-');
@@ -59,24 +59,24 @@ int int_handler(va_list args)
 	}
 
 	else if (num == 0)
-        {
-                _putchar('0');
-                count++;
-        }
-        else
-        {
-                div = 1;
-                while (num / div >= 10)
-                {
-                        div *= 10;
-                }
-                while (div != 0)
-                {
-                        _putchar((num / div) + '0');
-                        count++;
-                        num %= div;
-                        div /= 10;
-                }
-        }
-        return (count);
+	{
+		_putchar('0');
+		count++;
+	}
+	else
+	{
+		div = 1;
+		while (num / div >= 10)
+		{
+			div *= 10;
+		}
+		while (div != 0)
+		{
+			_putchar((num / div) + '0');
+			count++;
+			num %= div;
+			div /= 10;
+		}
+	}
+	return (count);
 }
