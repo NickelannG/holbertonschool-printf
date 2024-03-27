@@ -21,7 +21,7 @@
 int int_handler(va_list args)
 {
         int num, count = 0;
-        int div;
+        int div, k;
 
         num = va_arg(args, int);
 	
@@ -30,10 +30,11 @@ int int_handler(va_list args)
 	}
 	else if (num < 0)
         {
-                _putchar('-');
-                count++;
-                num = -num;
+                k = (num * -1);
+                count += _putchar('-');
         }
+        else 
+                k = num;
 
         if (num == 0)
         {
@@ -43,15 +44,15 @@ int int_handler(va_list args)
         else
         {
                 div = 1;
-                while (num / div >= 10)
+                while (k / div >= 10)
                 {
                         div *= 10;
                 }
                 while (div != 0)
                 {
-                        _putchar((num / div) + '0');
+                        _putchar((k / div) + '0');
                         count++;
-                        num %= div;
+                        k %= div;
                         div /= 10;
                 }
         }
