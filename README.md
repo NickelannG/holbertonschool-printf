@@ -8,13 +8,17 @@ This program is a custom implementation of the 'printf' function in C, which pri
 - [Features](#features)
 - [Flowchart](#flowchart)
 - [Installation](#installation)
+- [Usage](#usage)
 - [Contributors](#contributors)
 
 
 ## Features
 
-- Supports the format specifiers '%c', '%s', '%%', '%d', '%i'.
-- It prints characters, strings, integers, and the percent sign according to the specified format.
+##### Supports the format specifiers: 
+- '%c': Character
+- '%s': String
+- '%%': Percent sign
+- '%i', '%d': Integers
 
 ## Flowchart
 ![Flowchart for Printf project](https://github.com/NickelannG/holbertonschool-printf/blob/main/printf_flowchart.jpeg?raw=true)
@@ -24,6 +28,42 @@ To install this program, clone this repository using the git clone command as sh
 ```bash
 git clone https://github.com/NickelannG/holbertonschool-printf.git
 ```
+
+## Usage 
+**1. Create a source file**
+Create a main.c file and include the 'main.h' header file. Call the '_printf' function with the desired format string and arguments
+
+**2. Compilation**
+Compile the program using a c compiler. For example, we have used GCC:
+```C
+gcc -Wall -Werror -Wextra -pedantic *.c -o printf
+```
+This will compile all the '.c' files in the directory into an exectuable named printf 
+
+**3. Run the program**
+After compiling the program, you can run it from the command line:
+```bash
+./printf
+```
+
+Example of main.c file: 
+```C
+#include <stdio.h>
+#include "main.h"
+
+int main() {
+    _printf("Hello, %s!\n", "world");
+    _printf("The value of pi is approximately %f\n", 3.14159);
+    return 0;
+}
+```
+Output:
+```bash
+Hello, world!
+The value of pi is approximately 3.141590
+```
+
+
 ## Contributors 
 - [Nicole Ann Gorospe](https://github.com/NickelannG)
-- [Wen-I Liu](https://github.com/WennieL) 
+- [Wen-I Liu](https://github.com/WennieL)
