@@ -30,7 +30,7 @@ git clone https://github.com/NickelannG/holbertonschool-printf.git
 ```
 
 ## Usage 
-**1. Create a source file:**<br>
+**1. Create a source file**<br>
 Create a main.c file and include the 'main.h' header file. Call the '_printf' function with the desired format string and arguments
 
 **2. Compilation**<br>
