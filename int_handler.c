@@ -28,7 +28,7 @@ int int_handler(va_list args)
         if (num < 0)
         {
                 n = (num * -1);
-                count+= _putchar('-');
+                count += _putchar('-');
                 _putchar(n);
         }
         else
@@ -41,11 +41,11 @@ int int_handler(va_list args)
         }
         while (div >= 1)
         {
-                    _putchar((n / div) + '0');
-                    count++;
-                    n %= div;
-                    div /= 10;
+                _putchar((n / div) + '0');
+                count++;
+                n %= div;
+                div /= 10;
         }
         return (count);
 }
-   
+                              
