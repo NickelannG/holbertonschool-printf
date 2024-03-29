@@ -17,7 +17,7 @@ This program is a custom implementation of the 'printf' function in C, which pri
 - It prints characters, strings, integers, and the percent sign according to the specified format.
 
 ## Flowchart
-![Flowchart for Printf project](https://github.com/NickelannG/holbertonschool-printf/assets/printf_flowchart.jpeg
+![Flowchart for Printf project](https://github.com/NickelannG/holbertonschool-printf/blob/main/printf_flowchart.jpeg?raw=true)
 
 ## Installation
 To install this program, clone this repository using the git clone command as shown below.
