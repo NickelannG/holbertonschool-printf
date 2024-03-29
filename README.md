@@ -14,7 +14,7 @@ This program is a custom implementation of the 'printf' function in C, which pri
 
 ## Features
 
-##### Supports the format specifiers: 
+### Supports the format specifiers: 
 - '%c': Character
 - '%s': String
 - '%%': Percent sign
@@ -30,17 +30,17 @@ git clone https://github.com/NickelannG/holbertonschool-printf.git
 ```
 
 ## Usage 
-**1. Create a source file**
+**1. Create a source file:**<br>
 Create a main.c file and include the 'main.h' header file. Call the '_printf' function with the desired format string and arguments
 
-**2. Compilation**
+**2. Compilation**<br>
 Compile the program using a c compiler. For example, we have used GCC:
 ```C
 gcc -Wall -Werror -Wextra -pedantic *.c -o printf
 ```
 This will compile all the '.c' files in the directory into an exectuable named printf 
 
-**3. Run the program**
+**3. Run the program**<br>
 After compiling the program, you can run it from the command line:
 ```bash
 ./printf
