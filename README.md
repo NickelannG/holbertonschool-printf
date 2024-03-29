@@ -2,7 +2,7 @@
 Printf Project 
 
 ## Description
-This program is a custom implementation of the 'printf' function in C, which prints formatted output to the standard output stream. Our _printf function  supports certain format specifiers. It was created as part of the first group project for Holberton School Australia Cohort 23.
+This program is a custom implementation of the 'printf' function in C, which prints formatted output to the standard output stream. Our '_printf function'  supports certain format specifiers. It was created as part of the first group project for Holberton School Australia Cohort 23.
 
 ## Table of contents:
 - [Features](#features)
